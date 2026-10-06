@@ -1,28 +1,26 @@
 """
 724. Find Pivot Index
 https://leetcode.com/problems/find-pivot-index/
+Difficulty: Easy | Confidence: 3/5
+Time: O(n) | Space: O(1)
+Pattern: Prefix Sum
 
-Difficulty:  Easy
-Pattern:     Prefix Sum
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      2x  (first 2026-09-23, last 2026-09-24)
+KEY INSIGHT
+Looking for the index where left_sum == right_sum.
+total = sum(nums) up front. At each i:
+    right_sum = total - nums[i] - left_sum
+    if left_sum == right_sum: return i
+    left_sum += nums[i]
+Return -1 if none.
 
-Time:  O(n)
-Space: O(1)
+Time: sum() O(n) + loop O(n) -> O(n).
 
-Key insight:
-    Looking for the index where left_sum == right_sum.
-    total = sum(nums) up front. At each i:
-        right_sum = total - nums[i] - left_sum
-        if left_sum == right_sum: return i
-        left_sum += nums[i]
-    Return -1 if none.
+SOLVED
+- Sep 23, 2026: first solve
+- Sep 24, 2026: re-solve (2x total)
 
-    Time: sum() O(n) + loop O(n) -> O(n).
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

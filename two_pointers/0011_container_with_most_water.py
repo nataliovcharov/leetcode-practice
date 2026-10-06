@@ -1,26 +1,24 @@
 """
 11. Container With Most Water
 https://leetcode.com/problems/container-with-most-water/
+Difficulty: Medium | Confidence: 4/5
+Time: O(n) | Space: O(1)
+Pattern: Two Pointers (opposite ends, move the shorter wall)
 
-Difficulty:  Medium
-Pattern:     Two Pointers (opposite ends, move the shorter wall)
-LeetCode 75: yes
-Confidence:  4/5
-Solved:      2x  (first 2026-09-20, last 2026-09-21)
+KEY INSIGHT
+Start at opposite ends and only move the pointer whose wall is shorter.
 
-Time:  O(n)
-Space: O(1)
+Why: I start at maximum width, so width can only shrink. For the shorter
+wall, every remaining pair is both narrower AND capped at the same height,
+so it's strictly worse than what I just measured. That wall can't improve,
+so I drop it and keep searching among the rest.
 
-Key insight:
-    Start at opposite ends and only move the pointer whose wall is shorter.
+SOLVED
+- Sep 20, 2026: first solve
+- Sep 21, 2026: re-solve (2x total)
 
-    Why: I start at maximum width, so width can only shrink. For the shorter
-    wall, every remaining pair is both narrower AND capped at the same height,
-    so it's strictly worse than what I just measured. That wall can't improve,
-    so I drop it and keep searching among the rest.
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

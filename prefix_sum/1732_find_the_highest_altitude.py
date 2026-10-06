@@ -1,22 +1,20 @@
 """
 1732. Find the Highest Altitude
 https://leetcode.com/problems/find-the-highest-altitude/
+Difficulty: Easy | Confidence: 5/5
+Time: O(n) | Space: O(1)
+Pattern: Prefix Sum
 
-Difficulty:  Easy
-Pattern:     Prefix Sum
-LeetCode 75: yes
-Confidence:  5/5
-Solved:      2x  (first 2026-09-23, last 2026-09-24)
+KEY INSIGHT
+Initialize prefix = 0 AND max_alt = 0 (the starting altitude counts).
+Iterate gain, add to prefix each step, update the max.
 
-Time:  O(n)
-Space: O(1)
+SOLVED
+- Sep 23, 2026: first solve
+- Sep 24, 2026: re-solve (2x total)
 
-Key insight:
-    Initialize prefix = 0 AND max_alt = 0 (the starting altitude counts).
-    Iterate gain, add to prefix each step, update the max.
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

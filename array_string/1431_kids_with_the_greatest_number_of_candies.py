@@ -1,24 +1,22 @@
 """
 1431. Kids With the Greatest Number of Candies
 https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+Difficulty: Easy | Confidence: 5/5
+Time: O(n) | Space: O(1) extra (O(n) for the result list)
+Pattern: Array / String
 
-Difficulty:  Easy
-Pattern:     Array / String
-LeetCode 75: yes
-Confidence:  5/5
-Solved:      2x  (first 2026-09-12, last 2026-09-15)
+KEY INSIGHT
+Compute the max once with max(candies), then loop and check whether
+candies[i] + extraCandies >= that max.
 
-Time:  O(n)
-Space: O(1) extra (O(n) for the result list)
+SOLVED
+- Sep 12, 2026: first solve
+- Sep 15, 2026: re-solve (2x total)
 
-Key insight:
-    Compute the max once with max(candies), then loop and check whether
-    candies[i] + extraCandies >= that max.
-
-Mistakes log:
-    - 2026-09-15: Logic was right, but I wrote res[i] = True on an empty list
-      (res = []). Have to append. Also: I can find the max with a loop
-      instead of max(candies).
+MISTAKES
+- Sep 15: Logic was right, but I wrote res[i] = True on an empty list (res =
+  []). Have to append. Also: I can find the max with a loop instead of
+  max(candies).
 """
 
 from typing import List

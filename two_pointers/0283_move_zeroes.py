@@ -1,24 +1,23 @@
 """
 283. Move Zeroes
 https://leetcode.com/problems/move-zeroes/
+Difficulty: Easy | Confidence: 3/5
+Time: O(n) | Space: O(1)
+Pattern: Two Pointers (both start at the beginning)
 
-Difficulty:  Easy
-Pattern:     Two Pointers (both start at the beginning)
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      3x  (first 2026-09-19, last 2026-09-21)
+KEY INSIGHT
+i always points to where I write next; j scans for non-zero numbers. When
+nums[j] isn't zero, swap it to nums[i] and move i. Zeros just get skipped
+by j. The idea is to only bring actual numbers forward and let the zeros
+end up at the back.
 
-Time:  O(n)
-Space: O(1)
+SOLVED
+- Sep 19, 2026: first solve
+- 1 more re-solve in between (dates not logged)
+- Sep 21, 2026: re-solve (3x total)
 
-Key insight:
-    i always points to where I write next; j scans for non-zero numbers. When
-    nums[j] isn't zero, swap it to nums[i] and move i. Zeros just get skipped
-    by j. The idea is to only bring actual numbers forward and let the zeros
-    end up at the back.
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

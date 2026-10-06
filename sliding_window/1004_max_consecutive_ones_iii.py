@@ -1,24 +1,23 @@
 """
 1004. Max Consecutive Ones III
 https://leetcode.com/problems/max-consecutive-ones-iii/
+Difficulty: Medium | Confidence: 3/5
+Time: O(n) | Space: O(1)
+Pattern: Sliding Window (dynamic)
 
-Difficulty:  Medium
-Pattern:     Sliding Window (dynamic)
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      3x  (first 2026-09-21, last 2026-09-24)
+KEY INSIGHT
+Move the right pointer through the array and count zeros. Dynamic window,
+so there's a while loop that shrinks until the window is valid again:
+    while zeros > k: if nums[l] == 0: zeros -= 1; l += 1
+Track the max length r - l + 1.
 
-Time:  O(n)
-Space: O(1)
+SOLVED
+- Sep 21, 2026: first solve
+- 1 more re-solve in between (dates not logged)
+- Sep 24, 2026: re-solve (3x total)
 
-Key insight:
-    Move the right pointer through the array and count zeros. Dynamic window,
-    so there's a while loop that shrinks until the window is valid again:
-        while zeros > k: if nums[l] == 0: zeros -= 1; l += 1
-    Track the max length r - l + 1.
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

@@ -1,34 +1,32 @@
 """
 1679. Max Number of K-Sum Pairs
 https://leetcode.com/problems/max-number-of-k-sum-pairs/
+Difficulty: Medium | Confidence: 4/5
+Time: O(n log n) (the sort dominates) | Space: O(n) (Python's sort; O(1) besides that)
+Pattern: Two Pointers (sort, then opposite ends)
 
-Difficulty:  Medium
-Pattern:     Two Pointers (sort, then opposite ends)
-LeetCode 75: yes
-Confidence:  4/5
-Solved:      2x  (first 2026-09-20, last 2026-09-21)
+KEY INSIGHT
+Sort first, then start at opposite ends.
+  - sum < k  -> i += 1. nums[i] already got the biggest boost possible
+                (nums[j] is the largest left), so drop it.
+  - sum > k  -> j -= 1. nums[j] is already paired with the smallest
+                number left and it's still too big.
+  - sum == k -> count += 1, move BOTH pointers.
 
-Time:  O(n log n) (the sort dominates)
-Space: O(n) (Python's sort; O(1) besides that)
+Why: the array is sorted, so nums[j] is the largest number left. If even
+that isn't enough to reach k, pairing nums[i] with anything else (all
+smaller) gives an even smaller sum. It can never reach k.
 
-Key insight:
-    Sort first, then start at opposite ends.
-      - sum < k  -> i += 1. nums[i] already got the biggest boost possible
-                    (nums[j] is the largest left), so drop it.
-      - sum > k  -> j -= 1. nums[j] is already paired with the smallest
-                    number left and it's still too big.
-      - sum == k -> count += 1, move BOTH pointers.
+Note: I originally wrote O(n) time / O(1) space, but the sort makes it
+O(n log n). A hashmap version can do it in O(n) time with O(n) space.
 
-    Why: the array is sorted, so nums[j] is the largest number left. If even
-    that isn't enough to reach k, pairing nums[i] with anything else (all
-    smaller) gives an even smaller sum. It can never reach k.
+SOLVED
+- Sep 20, 2026: first solve
+- Sep 21, 2026: re-solve (2x total)
 
-    Note: I originally wrote O(n) time / O(1) space, but the sort makes it
-    O(n log n). A hashmap version can do it in O(n) time with O(n) space.
-
-Mistakes log:
-    - 2026-09-21: Forgot to move the pointers after incrementing count when a
-      pair is found.
+MISTAKES
+- Sep 21: Forgot to move the pointers after incrementing count when a pair
+  is found.
 """
 
 from typing import List

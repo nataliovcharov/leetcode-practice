@@ -1,23 +1,21 @@
 """
 392. Is Subsequence
 https://leetcode.com/problems/is-subsequence/
+Difficulty: Easy | Confidence: 5/5
+Time: O(n) | Space: O(1)
+Pattern: Two Pointers (both start at the beginning)
 
-Difficulty:  Easy
-Pattern:     Two Pointers (both start at the beginning)
-LeetCode 75: yes
-Confidence:  5/5
-Solved:      2x  (first 2026-09-20, last 2026-09-21)
+KEY INSIGHT
+Both pointers start at the beginning. Walk through t every step, but only
+advance the pointer on s when the characters match. s is a subsequence of t
+if its pointer reaches len(s).
 
-Time:  O(n)
-Space: O(1)
+SOLVED
+- Sep 20, 2026: first solve
+- Sep 21, 2026: re-solve (2x total)
 
-Key insight:
-    Both pointers start at the beginning. Walk through t every step, but only
-    advance the pointer on s when the characters match. s is a subsequence of t
-    if its pointer reaches len(s).
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

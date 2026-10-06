@@ -1,25 +1,24 @@
 """
 1493. Longest Subarray of 1's After Deleting One Element
 https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/
+Difficulty: Medium | Confidence: 3/5
+Time: O(n) | Space: O(1)
+Pattern: Sliding Window (dynamic)
 
-Difficulty:  Medium
-Pattern:     Sliding Window (dynamic)
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      3x  (first 2026-09-22, last 2026-09-24)
+KEY INSIGHT
+Same as 1004 with k = 1: allow at most one zero in the window, shrink with
+a while loop when there are more. The answer is window length - 1, because
+I have to delete one element (even if it's all ones).
 
-Time:  O(n)
-Space: O(1)
+Note: update max_len at EVERY iteration.
 
-Key insight:
-    Same as 1004 with k = 1: allow at most one zero in the window, shrink with
-    a while loop when there are more. The answer is window length - 1, because
-    I have to delete one element (even if it's all ones).
+SOLVED
+- Sep 22, 2026: first solve
+- 1 more re-solve in between (dates not logged)
+- Sep 24, 2026: re-solve (3x total)
 
-    Note: update max_len at EVERY iteration.
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

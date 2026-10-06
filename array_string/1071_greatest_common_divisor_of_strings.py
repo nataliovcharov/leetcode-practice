@@ -1,36 +1,34 @@
 """
 1071. Greatest Common Divisor of Strings
 https://leetcode.com/problems/greatest-common-divisor-of-strings/
+Difficulty: Easy | Confidence: 3/5
+Time: O(min(m, n) * (m + n)) | Space: O(m + n)
+Pattern: Array / String - Math (GCD)
 
-Difficulty:  Easy
-Pattern:     Array / String - Math (GCD)
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      2x  (first 2026-09-12, last 2026-09-15)
+KEY INSIGHT
+Brute force it first to see that I have to take the shorter string and check
+its prefixes, starting from the LONGEST (I want the largest x), to find the
+one that divides both strings.
 
-Time:  O(min(m, n) * (m + n))
-Space: O(m + n)
+Main loop: for k from min(len1, len2) down to 1, call valid(k). The first
+k that passes -> return str1[:k].
 
-Key insight:
-    Brute force it first to see that I have to take the shorter string and check
-    its prefixes, starting from the LONGEST (I want the largest x), to find the
-    one that divides both strings.
+valid(k):
+  - if len1 % k or len2 % k -> False (lengths have to divide evenly)
+  - base = str1[:k]; n1, n2 = len1 // k, len2 // k
+  - return str1 == base * n1 and str2 == base * n2
 
-    Main loop: for k from min(len1, len2) down to 1, call valid(k). The first
-    k that passes -> return str1[:k].
+Time: the loop is O(min(m, n)) and each valid() builds/compares O(m + n)
+chars -> multiplied, O(min(m, n) * (m + n)).
+Space: the strings I build are about m + n chars at peak.
 
-    valid(k):
-      - if len1 % k or len2 % k -> False (lengths have to divide evenly)
-      - base = str1[:k]; n1, n2 = len1 // k, len2 // k
-      - return str1 == base * n1 and str2 == base * n2
+SOLVED
+- Sep 12, 2026: first solve
+- Sep 15, 2026: re-solve (2x total)
 
-    Time: the loop is O(min(m, n)) and each valid() builds/compares O(m + n)
-    chars -> multiplied, O(min(m, n) * (m + n)).
-    Space: the strings I build are about m + n chars at peak.
-
-Mistakes log:
-    - 2026-09-15: Couldn't remember how to solve it. Looked at the solution
-      again, then solved it twice without looking.
+MISTAKES
+- Sep 15: Couldn't remember how to solve it. Looked at the solution again,
+  then solved it twice without looking.
 """
 
 from typing import List

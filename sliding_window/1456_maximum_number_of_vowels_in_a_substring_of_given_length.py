@@ -1,24 +1,23 @@
 """
 1456. Maximum Number of Vowels in a Substring of Given Length
 https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/
+Difficulty: Medium | Confidence: 3/5
+Time: O(n) | Space: O(1)
+Pattern: Sliding Window (fixed size)
 
-Difficulty:  Medium
-Pattern:     Sliding Window (fixed size)
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      3x  (first 2026-09-21, last 2026-09-24)
+KEY INSIGHT
+Vowels in a set for O(1) lookup. Move the right pointer through the string,
+counting vowels. As soon as the window gets longer than k
+(r - l + 1 > k), shrink it: if s[l] is a vowel decrement count, then l += 1.
+Track the max count.
 
-Time:  O(n)
-Space: O(1)
+SOLVED
+- Sep 21, 2026: first solve
+- 1 more re-solve in between (dates not logged)
+- Sep 24, 2026: re-solve (3x total)
 
-Key insight:
-    Vowels in a set for O(1) lookup. Move the right pointer through the string,
-    counting vowels. As soon as the window gets longer than k
-    (r - l + 1 > k), shrink it: if s[l] is a vowel decrement count, then l += 1.
-    Track the max count.
-
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List

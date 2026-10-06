@@ -1,29 +1,27 @@
 """
 605. Can Place Flowers
 https://leetcode.com/problems/can-place-flowers/
+Difficulty: Easy | Confidence: 4/5
+Time: O(n) | Space: O(1)
+Pattern: Array / String - Greedy
 
-Difficulty:  Easy
-Pattern:     Array / String - Greedy
-LeetCode 75: yes
-Confidence:  4/5
-Solved:      2x  (first 2026-09-12, last 2026-09-15)
+KEY INSIGHT
+Greedy: make a sequence of decisions, take the locally best option at each
+step, never reconsider.
 
-Time:  O(n)
-Space: O(1)
+Look at the spot before and after each candidate. First and last positions
+are edge cases: the left side counts as empty if i == 0 or
+flowerbed[i - 1] == 0, and the same logic applies on the right for the end
+of the array.
 
-Key insight:
-    Greedy: make a sequence of decisions, take the locally best option at each
-    step, never reconsider.
+SOLVED
+- Sep 12, 2026: first solve
+- Sep 15, 2026: re-solve (2x total)
 
-    Look at the spot before and after each candidate. First and last positions
-    are edge cases: the left side counts as empty if i == 0 or
-    flowerbed[i - 1] == 0, and the same logic applies on the right for the end
-    of the array.
-
-Mistakes log:
-    - 2026-09-15: Remembered the logic but forgot that when I find an eligible
-      spot I HAVE to set flowerbed[i] = 1, because the next spot's
-      eligibility depends on it.
+MISTAKES
+- Sep 15: Remembered the logic but forgot that when I find an eligible spot
+  I HAVE to set flowerbed[i] = 1, because the next spot's eligibility
+  depends on it.
 """
 
 from typing import List

@@ -1,25 +1,27 @@
 """
-303. Range Sum Query - Immutable
+303. Range Sum Query - Immutable  (extra, not LeetCode 75)
 https://leetcode.com/problems/range-sum-query-immutable/
+Difficulty: Easy | Confidence: 4/5
+Time: O(n) build, O(1) per query | Space: O(n)
+Pattern: Prefix Sum
 
-Difficulty:  Easy
-Pattern:     Prefix Sum
-LeetCode 75: no (extra practice)
-Confidence:  4/5
-Solved:      1x  (first 2026-10-01, last 2026-10-01)
+KEY INSIGHT
+Build the prefix array once in __init__, so sumRange is just a
+subtraction. With a leading 0 (prefix[0] = 0, prefix[i + 1] = sum of
+nums[:i + 1]):
+    sumRange(l, r) = prefix[r + 1] - prefix[l]
+The leading 0 removes the l == 0 edge case.
 
-Time:  O(n) build, O(1) per query
-Space: O(n)
+My version has no leading 0, so prefix[k] = sum of nums[0..k] inclusive and
+sumRange = prefix[right] - prefix[left - 1], with a special case for left == 0
+(prefix[-1] in Python would silently return the LAST element).
 
-Key insight:
-    Build the prefix array once in __init__, so sumRange is just a
-    subtraction. With a leading 0 (prefix[0] = 0, prefix[i + 1] = sum of
-    nums[:i + 1]):
-        sumRange(l, r) = prefix[r + 1] - prefix[l]
-    The leading 0 removes the l == 0 edge case.
+SOLVED
+- Oct 1, 2026: first solve
+- Oct 4, 2026: re-solve: my version without the leading 0
 
-Mistakes log:
-    - (none yet)
+MISTAKES
+- (none logged)
 """
 
 from typing import List
@@ -27,12 +29,20 @@ from typing import List
 
 class NumArray:
     def __init__(self, nums: List[int]):
-        # TODO: paste my solution
-        raise NotImplementedError
+        self.prefix = []
+        cur = 0
+
+        for n in nums:
+            cur += n
+            self.prefix.append(cur)
 
     def sumRange(self, left: int, right: int) -> int:
-        # TODO: paste my solution
-        raise NotImplementedError
+        rightSum = self.prefix[right]
+        if left > 0:
+            leftSum = self.prefix[left - 1]
+        else:
+            leftSum = 0
+        return rightSum - leftSum
 
 
 if __name__ == "__main__":

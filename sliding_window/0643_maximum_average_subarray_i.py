@@ -1,28 +1,27 @@
 """
 643. Maximum Average Subarray I
 https://leetcode.com/problems/maximum-average-subarray-i/
+Difficulty: Easy | Confidence: 3/5
+Time: O(n) | Space: O(1)
+Pattern: Sliding Window (fixed size)
 
-Difficulty:  Easy
-Pattern:     Sliding Window (fixed size)
-LeetCode 75: yes
-Confidence:  3/5
-Solved:      3x  (first 2026-09-21, last 2026-09-24)
+KEY INSIGHT
+Start with window_sum = sum(nums[:k]). Then loop for i in
+range(len(nums) - k). It only goes up to len(nums) - k because each step
+adds nums[i + k], so the loop still reaches every element.
 
-Time:  O(n)
-Space: O(1)
+Main line:  window_sum += nums[i + k] - nums[i]
+            (add the new rightmost, remove the old leftmost)
+Track the max sum, return max_sum / k.
 
-Key insight:
-    Start with window_sum = sum(nums[:k]). Then loop for i in
-    range(len(nums) - k). It only goes up to len(nums) - k because each step
-    adds nums[i + k], so the loop still reaches every element.
+SOLVED
+- Sep 21, 2026: first solve
+- 1 more re-solve in between (dates not logged)
+- Sep 24, 2026: re-solve (3x total)
 
-    Main line:  window_sum += nums[i + k] - nums[i]
-                (add the new rightmost, remove the old leftmost)
-    Track the max sum, return max_sum / k.
-
-Mistakes log:
-    - 2026-09-24: Completely messed up the pointers. Thought it was a dynamic
-      window; it's FIXED size.
+MISTAKES
+- Sep 24: Completely messed up the pointers. Thought it was a dynamic
+  window; it's FIXED size.
 """
 
 from typing import List
